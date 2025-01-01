@@ -8,7 +8,6 @@ import (
 	"go/token"
 	"os"
 	"path/filepath"
-	"slices"
 	"strconv"
 	"strings"
 
@@ -74,13 +73,13 @@ func resolveMessageFieldWithConsts(f *string, consts []*constObj) {
 	}
 
 	name, pkg := s[0], s[1]
-	iConst := slices.IndexFunc(consts, func(c *constObj) bool { return c.name == name && c.packageName == pkg })
-	if iConst == -1 {
-		*f = name
-		return
+	for _, c := range consts {
+		if c.name == name && c.packageName == pkg {
+			*f = consts[iConst].value
+			return
+		}
 	}
-
-	*f = consts[iConst].value
+	*f = name
 }
 
 func resolveMessageWithConsts(m *i18n.Message, consts []*constObj) {
