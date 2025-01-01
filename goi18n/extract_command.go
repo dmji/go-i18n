@@ -75,7 +75,7 @@ func resolveMessageFieldWithConsts(f *string, consts []*constObj) {
 	name, pkg := s[0], s[1]
 	for _, c := range consts {
 		if c.name == name && c.packageName == pkg {
-			*f = consts[iConst].value
+			*f = c.value
 			return
 		}
 	}
