@@ -1,5 +1,5 @@
 # go-i18n
-![Build status](https://github.com/nicksnyder/go-i18n/workflows/Build/badge.svg) [![Report card](https://goreportcard.com/badge/github.com/nicksnyder/go-i18n/v2)](https://goreportcard.com/report/github.com/nicksnyder/go-i18n/v2) [![codecov](https://codecov.io/gh/nicksnyder/go-i18n/graph/badge.svg?token=A9aMfR9vxG)](https://codecov.io/gh/nicksnyder/go-i18n) [![Sourcegraph](https://sourcegraph.com/github.com/nicksnyder/go-i18n/-/badge.svg)](https://sourcegraph.com/github.com/nicksnyder/go-i18n?badge)
+![Build status](https://github.com/nicksnyder/go-i18n/workflows/Build/badge.svg) [![Report card](https://goreportcard.com/badge/github.com/dmji/go-i18n-fork)](https://goreportcard.com/report/github.com/dmji/go-i18n-fork) [![codecov](https://codecov.io/gh/nicksnyder/go-i18n/graph/badge.svg?token=A9aMfR9vxG)](https://codecov.io/gh/nicksnyder/go-i18n) [![Sourcegraph](https://sourcegraph.com/github.com/nicksnyder/go-i18n/-/badge.svg)](https://sourcegraph.com/github.com/nicksnyder/go-i18n?badge)
 
 go-i18n — це Go [пакет](#package-i18n) та [інструмент](#command-goi18n), які допомагають перекладати Go програми на різні мови.
 
@@ -10,12 +10,12 @@ go-i18n — це Go [пакет](#package-i18n) та [інструмент](#com
 
 ## Пакет i18n
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/nicksnyder/go-i18n/v2/i18n.svg)](https://pkg.go.dev/github.com/nicksnyder/go-i18n/v2/i18n)
+[![Go Reference](https://pkg.go.dev/badge/github.com/dmji/go-i18n-fork/i18n.svg)](https://pkg.go.dev/github.com/dmji/go-i18n-fork/i18n)
 
 Пакет i18n забезпечує підтримку пошуку повідомлень відповідно до набору мовних уподобань.
 
 ```go
-import "github.com/nicksnyder/go-i18n/v2/i18n"
+import "github.com/dmji/go-i18n-fork/i18n"
 ```
 
 Створіть Bundle, який використовуватимете протягом усього терміну служби вашої програми.
@@ -69,12 +69,12 @@ localizer.Localize(&i18n.LocalizeConfig{
 
 ## Команда goi18n
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/nicksnyder/go-i18n/v2/goi18n.svg)](https://pkg.go.dev/github.com/nicksnyder/go-i18n/v2/goi18n)
+[![Go Reference](https://pkg.go.dev/badge/github.com/dmji/go-i18n-fork/goi18n.svg)](https://pkg.go.dev/github.com/dmji/go-i18n-fork/goi18n)
 
 Команда goi18n управляє файлами повідомлень, що використовуються пакетом i18n.
 
 ```
-go install -v github.com/nicksnyder/go-i18n/v2/goi18n@latest
+go install -v github.com/dmji/go-i18n-fork/goi18n@latest
 goi18n -help
 ```
 
@@ -129,7 +129,7 @@ other = "{{.Name}} has {{.Count}} cats."
 
 ## Для отримання додаткової інформації та прикладів:
 
-- Ознайомтеся з [документацією](https://pkg.go.dev/github.com/nicksnyder/go-i18n/v2).
+- Ознайомтеся з [документацією](https://pkg.go.dev/github.com/dmji/go-i18n-fork).
 - Подивіться [приклади коду](https://github.com/nicksnyder/go-i18n/blob/main/i18n/example_test.go) та [тести](https://github.com/nicksnyder/go-i18n/blob/main/i18n/localizer_test.go).
 - Перегляньте приклад [додатку](https://github.com/nicksnyder/go-i18n/tree/main/example).
 

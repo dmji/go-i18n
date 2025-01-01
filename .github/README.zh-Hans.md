@@ -1,5 +1,5 @@
 # go-i18n
-![Build status](https://github.com/nicksnyder/go-i18n/workflows/Build/badge.svg) [![Report card](https://goreportcard.com/badge/github.com/nicksnyder/go-i18n/v2)](https://goreportcard.com/report/github.com/nicksnyder/go-i18n/v2) [![codecov](https://codecov.io/gh/nicksnyder/go-i18n/graph/badge.svg?token=A9aMfR9vxG)](https://codecov.io/gh/nicksnyder/go-i18n) [![Sourcegraph](https://sourcegraph.com/github.com/nicksnyder/go-i18n/-/badge.svg)](https://sourcegraph.com/github.com/nicksnyder/go-i18n?badge)
+![Build status](https://github.com/nicksnyder/go-i18n/workflows/Build/badge.svg) [![Report card](https://goreportcard.com/badge/github.com/dmji/go-i18n-fork)](https://goreportcard.com/report/github.com/dmji/go-i18n-fork) [![codecov](https://codecov.io/gh/nicksnyder/go-i18n/graph/badge.svg?token=A9aMfR9vxG)](https://codecov.io/gh/nicksnyder/go-i18n) [![Sourcegraph](https://sourcegraph.com/github.com/nicksnyder/go-i18n/-/badge.svg)](https://sourcegraph.com/github.com/nicksnyder/go-i18n?badge)
 
 go-i18n 是一个帮助您将 Go 程序翻译成多种语言的 Go [包](#package-i18n)和[命令](#command-goi18n)。
 
@@ -19,12 +19,12 @@ go-i18n 是一个帮助您将 Go 程序翻译成多种语言的 Go [包](#packag
 
 ## i18n 包
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/nicksnyder/go-i18n/v2/i18n.svg)](https://pkg.go.dev/github.com/nicksnyder/go-i18n/v2/i18n)
+[![Go Reference](https://pkg.go.dev/badge/github.com/dmji/go-i18n-fork/i18n.svg)](https://pkg.go.dev/github.com/dmji/go-i18n-fork/i18n)
 
 i18n 包支持根据一组语言环境首选项来查找消息。
 
 ```go
-import "github.com/nicksnyder/go-i18n/v2/i18n"
+import "github.com/dmji/go-i18n-fork/i18n"
 ```
 
 创建一个 Bundle 以在应用程序的整个生命周期中使用。
@@ -78,12 +78,12 @@ localizer.Localize(&i18n.LocalizeConfig{
 
 ## goi18n 命令
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/nicksnyder/go-i18n/v2/goi18n.svg)](https://pkg.go.dev/github.com/nicksnyder/go-i18n/v2/goi18n)
+[![Go Reference](https://pkg.go.dev/badge/github.com/dmji/go-i18n-fork/goi18n.svg)](https://pkg.go.dev/github.com/dmji/go-i18n-fork/goi18n)
 
 goi18n 命令管理 i18n 包所使用的消息文件。
 
 ```
-go install -v github.com/nicksnyder/go-i18n/v2/goi18n@latest
+go install -v github.com/dmji/go-i18n-fork/goi18n@latest
 goi18n -help
 ```
 
@@ -139,7 +139,7 @@ other = "{{.Name}} has {{.Count}} cats."
 
 ## 进一步的信息和示例：
 
-- 阅读[文档](https://pkg.go.dev/github.com/nicksnyder/go-i18n/v2)。
+- 阅读[文档](https://pkg.go.dev/github.com/dmji/go-i18n-fork)。
 - 查看[代码示例](https://github.com/nicksnyder/go-i18n/blob/main/i18n/example_test.go)和
   [测试](https://github.com/nicksnyder/go-i18n/blob/main/i18n/localizer_test.go)。
 - 查看示例[程序](https://github.com/nicksnyder/go-i18n/tree/main/example)。

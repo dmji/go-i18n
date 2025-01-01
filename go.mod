@@ -1,6 +1,6 @@
-module github.com/nicksnyder/go-i18n/v2
+module github.com/dmji/go-i18n-fork
 
-go 1.18
+go 1.23.4
 
 require (
 	github.com/BurntSushi/toml v1.4.0
