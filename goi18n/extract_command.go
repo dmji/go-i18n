@@ -174,13 +174,6 @@ func newExtractor(file *ast.File) *extractor {
 
 const unresolvedConstIdentifier = ":::unresolved:::"
 
-const (
-	blabla5 = "bla"
-	blabla4 = "bla"
-	blabla3 = "bla"
-	blabla2 = "bla"
-)
-
 type constObj struct {
 	name        string
 	value       string
