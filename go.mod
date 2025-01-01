@@ -1,4 +1,4 @@
-module github.com/dmji/go-i18n-fork
+module github.com/dmji/go-i18n
 
 go 1.23.4
 

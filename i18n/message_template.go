@@ -4,9 +4,9 @@ import (
 	"fmt"
 	texttemplate "text/template"
 
-	"github.com/dmji/go-i18n-fork/i18n/template"
-	"github.com/dmji/go-i18n-fork/internal"
-	"github.com/dmji/go-i18n-fork/internal/plural"
+	"github.com/dmji/go-i18n/i18n/template"
+	"github.com/dmji/go-i18n/internal"
+	"github.com/dmji/go-i18n/internal/plural"
 )
 
 // MessageTemplate is an executable template for a message.

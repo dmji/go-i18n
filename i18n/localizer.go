@@ -4,8 +4,8 @@ import (
 	"fmt"
 	texttemplate "text/template"
 
-	"github.com/dmji/go-i18n-fork/i18n/template"
-	"github.com/dmji/go-i18n-fork/internal/plural"
+	"github.com/dmji/go-i18n/i18n/template"
+	"github.com/dmji/go-i18n/internal/plural"
 	"golang.org/x/text/language"
 )
 

@@ -1,5 +1,5 @@
 # go-i18n
-![Build status](https://github.com/nicksnyder/go-i18n/workflows/Build/badge.svg) [![Report card](https://goreportcard.com/badge/github.com/dmji/go-i18n-fork)](https://goreportcard.com/report/github.com/dmji/go-i18n-fork) [![codecov](https://codecov.io/gh/nicksnyder/go-i18n/graph/badge.svg?token=A9aMfR9vxG)](https://codecov.io/gh/nicksnyder/go-i18n) [![Sourcegraph](https://sourcegraph.com/github.com/nicksnyder/go-i18n/-/badge.svg)](https://sourcegraph.com/github.com/nicksnyder/go-i18n?badge)
+![Build status](https://github.com/nicksnyder/go-i18n/workflows/Build/badge.svg) [![Report card](https://goreportcard.com/badge/github.com/dmji/go-i18n)](https://goreportcard.com/report/github.com/dmji/go-i18n) [![codecov](https://codecov.io/gh/nicksnyder/go-i18n/graph/badge.svg?token=A9aMfR9vxG)](https://codecov.io/gh/nicksnyder/go-i18n) [![Sourcegraph](https://sourcegraph.com/github.com/nicksnyder/go-i18n/-/badge.svg)](https://sourcegraph.com/github.com/nicksnyder/go-i18n?badge)
 
 go-i18n is a Go [package](#package-i18n) and a [command](#command-goi18n) that helps you translate Go programs into multiple languages.
 
@@ -10,12 +10,12 @@ go-i18n is a Go [package](#package-i18n) and a [command](#command-goi18n) that h
 
 ## Package i18n
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/dmji/go-i18n-fork/i18n.svg)](https://pkg.go.dev/github.com/dmji/go-i18n-fork/i18n)
+[![Go Reference](https://pkg.go.dev/badge/github.com/dmji/go-i18n/i18n.svg)](https://pkg.go.dev/github.com/dmji/go-i18n/i18n)
 
 The i18n package provides support for looking up messages according to a set of locale preferences.
 
 ```go
-import "github.com/dmji/go-i18n-fork/i18n"
+import "github.com/dmji/go-i18n/i18n"
 ```
 
 Create a Bundle to use for the lifetime of your application.
@@ -69,12 +69,12 @@ localizer.Localize(&i18n.LocalizeConfig{
 
 ## Command goi18n
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/dmji/go-i18n-fork/goi18n.svg)](https://pkg.go.dev/github.com/dmji/go-i18n-fork/goi18n)
+[![Go Reference](https://pkg.go.dev/badge/github.com/dmji/go-i18n/goi18n.svg)](https://pkg.go.dev/github.com/dmji/go-i18n/goi18n)
 
 The goi18n command manages message files used by the i18n package.
 
 ```
-go install -v github.com/dmji/go-i18n-fork/goi18n@latest
+go install -v github.com/dmji/go-i18n/goi18n@latest
 goi18n -help
 ```
 
@@ -129,7 +129,7 @@ If you have added new messages to your program:
 
 ## For more information and examples:
 
-- Read the [documentation](https://pkg.go.dev/github.com/dmji/go-i18n-fork).
+- Read the [documentation](https://pkg.go.dev/github.com/dmji/go-i18n).
 - Look at the [code examples](https://github.com/nicksnyder/go-i18n/blob/main/i18n/example_test.go) and [tests](https://github.com/nicksnyder/go-i18n/blob/main/i18n/localizer_test.go).
 - Look at an example [application](https://github.com/nicksnyder/go-i18n/tree/main/example).
 
