@@ -6,7 +6,6 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
-	"log"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -128,7 +127,6 @@ func (ec *extractCommand) execute() error {
 			if err != nil {
 				return err
 			}
-			log.Printf("goi18n: walked path '%s' found %d messages and %d consts", path, len(msgs), len(cnsts))
 			messages = append(messages, msgs...)
 			consts = append(consts, cnsts...)
 			return nil
@@ -231,6 +229,7 @@ func (e *extractor) extractMessages(node ast.Node) {
 	// Collect consts from all files to resolve nil objects recived after extract message
 	if gd, ok := node.(*ast.GenDecl); ok {
 		e.extractConsts(*gd)
+		return
 	}
 
 	cl, ok := node.(*ast.CompositeLit)
@@ -379,7 +378,7 @@ func extractStringLiteral(expr ast.Expr) (string, bool) {
 
 func i18nPackageName(file *ast.File) string {
 	for _, i := range file.Imports {
-		if i.Path.Kind == token.STRING && i.Path.Value == `"github.com/dmji/go-i18n/i18n"` {
+		if i.Path.Kind == token.STRING && i.Path.Value == `"github.com/nicksnyder/go-i18n/v2/i18n"` {
 			if i.Name == nil {
 				return "i18n"
 			}
