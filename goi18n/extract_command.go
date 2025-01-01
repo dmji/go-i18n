@@ -6,6 +6,7 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"log"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -127,6 +128,7 @@ func (ec *extractCommand) execute() error {
 			if err != nil {
 				return err
 			}
+			log.Printf("goi18n: walked path '%s' found %d messages and %d consts", path, len(msgs), len(cnsts))
 			messages = append(messages, msgs...)
 			consts = append(consts, cnsts...)
 			return nil
