@@ -9,10 +9,12 @@ import (
 
 func TestExtract(t *testing.T) {
 	tests := []struct {
-		name       string
-		fileName   string
-		file       string
-		activeFile []byte
+		name             string
+		fileName         string
+		file             string
+		activeFile       []byte
+		expectedExitCode int
+		expectedErr      error
 	}{
 		{
 			name:     "no translations",
@@ -30,6 +32,43 @@ func TestExtract(t *testing.T) {
 				ID: "Plural ID",
 			}
 			`,
+		},
+		{
+			name:     "duplicate ID with same message is not an error",
+			fileName: "file.go",
+			file: `package main
+
+			import "github.com/nicksnyder/go-i18n/v2/i18n"
+
+			var m1 = &i18n.Message{
+				ID: "m",
+				Other: "m",
+			}
+			var m2 = &i18n.Message{
+				ID: "m",
+				Other: "m",
+			}
+			`,
+			activeFile: []byte(`m = "m"
+`),
+		},
+		{
+			name:     "duplicate ID with different message is an error",
+			fileName: "file.go",
+			file: `package main
+
+			import "github.com/nicksnyder/go-i18n/v2/i18n"
+
+			var m1 = &i18n.Message{
+				ID: "m",
+				Other: "m1",
+			}
+			var m2 = &i18n.Message{
+				ID: "m",
+				Other: "m2",
+			}
+			`,
+			expectedExitCode: 1,
 		},
 		{
 			name:     "escape newline",
@@ -251,23 +290,32 @@ zero = "Zero translation"
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			indir := mustTempDir("TestExtractCommandIn")
-			defer os.RemoveAll(indir)
+			defer mustRemoveAll(t, indir)
 			outdir := mustTempDir("TestExtractCommandOut")
-			defer os.RemoveAll(outdir)
+			defer mustRemoveAll(t, outdir)
 
 			inpath := filepath.Join(indir, test.fileName)
 			if err := os.WriteFile(inpath, []byte(test.file), 0666); err != nil {
 				t.Fatal(err)
 			}
 
-			if code := testableMain([]string{"extract", "-outdir", outdir, indir}); code != 0 {
-				t.Fatalf("expected exit code 0; got %d\n", code)
+			code := testableMain([]string{"extract", "-outdir", outdir, indir})
+			if code != test.expectedExitCode {
+				t.Fatalf("expected exit code %d; got %d\n", test.expectedExitCode, code)
 			}
 
 			files, err := os.ReadDir(outdir)
 			if err != nil {
 				t.Fatal(err)
 			}
+
+			if code != 0 {
+				if len(files) != 0 {
+					t.Fatalf("expected 0 files; got %#v", files)
+				}
+				return
+			}
+
 			if len(files) != 1 {
 				t.Fatalf("expected 1 file; got %#v", files)
 			}
@@ -294,7 +342,7 @@ func TestExtractCommand(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer os.RemoveAll(outdir)
+	defer mustRemoveAll(t, outdir)
 	if code := testableMain([]string{"extract", "-outdir", outdir, "../example/"}); code != 0 {
 		t.Fatalf("expected exit code 0; got %d", code)
 	}

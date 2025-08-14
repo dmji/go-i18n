@@ -8,6 +8,7 @@ import (
 	"go/token"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strconv"
 	"strings"
 
@@ -142,6 +143,9 @@ func (ec *extractCommand) execute() error {
 
 		// create template
 		if mt := i18n.NewMessageTemplate(m); mt != nil {
+			if duplicateMessage, ok := messageTemplates[m.ID]; ok && !reflect.DeepEqual(mt, duplicateMessage) {
+				return &duplicateMessageIDErr{messageID: m.ID}
+			}
 			messageTemplates[m.ID] = mt
 		}
 	}
@@ -150,6 +154,14 @@ func (ec *extractCommand) execute() error {
 		return err
 	}
 	return os.WriteFile(path, content, 0666)
+}
+
+type duplicateMessageIDErr struct {
+	messageID string
+}
+
+func (e *duplicateMessageIDErr) Error() string {
+	return fmt.Sprintf("duplicate message ID: %s", e.messageID)
 }
 
 // extractMessages extracts messages from the bytes of a Go source file.
